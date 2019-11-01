@@ -1,5 +1,5 @@
 # aprs-symbols
-JS library providing rendering interface for APRS icons
+CSS library with optional JS providing rendering means for APRS icons, rendering 24x24px icons
 
 ## Usage
 
