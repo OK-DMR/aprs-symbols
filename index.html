@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>APRS Symbols - Demo</title>
+
+    <!-- Necessary CSS -->
+    <link rel="stylesheet" href="aprs-symbols.css"/>
+    <!-- Optional JS -->
+    <script src="aprs-symbols.js"></script>
+    <!-- helper JS for this demo -->
+    <script src="doc-ready.js"></script>
+</head>
+
+<body>
+<h1>APRS Symbols - Demo</h1>
+<!-- Pure HTML/CSS -->
+<div id="pure-html-css">
+    <h2>Plain HTML/CSS usage</h2>
+    <i class="aprs-table0 aprs-address-0-0"></i>
+    <i class="aprs-table0 aprs-address-0-1"></i>
+    <i class="aprs-table0 aprs-address-0-2"></i>
+    <i class="aprs-table0 aprs-address-0-3"></i>
+    <i class="aprs-table0 aprs-address-0-4"></i>
+    <i class="aprs-table0 aprs-address-0-5"></i>
+    <i class="aprs-table0 aprs-address-0-6"></i>
+    <i class="aprs-table0 aprs-address-0-7"></i>
+    <i class="aprs-table0 aprs-address-0-8"></i>
+    <i class="aprs-table0 aprs-address-0-9"></i>
+</div>
+
+<div id="js-helper-1">
+    <h2>JS helper getAPRSSymbolImageTag(string symbol)</h2>
+    <div id="js-helper-1-inner">
+
+    </div>
+    <script type="text/javascript">
+        docReady(function () {
+            // use simple when known symbol
+            var el = document.getElementById('js-helper-1-inner');
+            el.innerHTML += getAPRSSymbolImageTag('/[');
+            el.innerHTML += getAPRSSymbolImageTag('/=');
+            el.innerHTML += getAPRSSymbolImageTag('/>');
+            el.innerHTML += getAPRSSymbolImageTag('/p');
+        });
+    </script>
+</div>
+
+<div id="js-helper-2">
+    <h2>JS helper getAPRSSymbolImageTagByAddress(array address)</h2>
+    <div id="js-helper-2-inner">
+
+    </div>
+    <script type="text/javascript">
+        docReady(function () {
+            var el = document.getElementById('js-helper-2-inner');
+            // generate all images from 2 basic tables
+            for (var table = 0; table < 2; table++) {
+                for (var row = 0; row < 6; row++) {
+                    for (var col = 0; col < 16; col++) {
+                        el.innerHTML += getAPRSSymbolImageTagByAddress([table, row, col])
+                    }
+                    el.innerHTML += '<br/>';
+                }
+                el.innerHTML += '<br/><br/>';
+            }
+        });
+    </script>
+</div>
+</body>
+</html>
