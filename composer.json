@@ -1,0 +1,15 @@
+{
+    "name": "smarek/aprs-symbols",
+    "description": "CSS module to render APRS symbol tables, with optional JS helpers",
+    "keywords": ["aprs"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marek Sebera",
+            "email": "marek.sebera@gmail.com"
+        }
+    ],
+    "require": {},
+    "suggest": {}
+}
