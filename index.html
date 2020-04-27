@@ -85,9 +85,9 @@
     <code>
         <pre>var el = document.getElementById('js-helper-1-inner');
 el.innerHTML += getAPRSSymbolImageTag('/['); // outputs: &lt;i class="aprs-table0-24 aprs-address-24-3-10">&lt;/i>
-el.innerHTML += getAPRSSymbolImageTag('/='); // outputs: &lt;i class="aprs-table0-24 aprs-address-24-1-12">&lt;/i>
-el.innerHTML += getAPRSSymbolImageTag('/>'); // outputs: &lt;i class="aprs-table0-24 aprs-address-24-1-13">&lt;/i>
-el.innerHTML += getAPRSSymbolImageTag('/p'); // outputs: &lt;i class="aprs-table0-24 aprs-address-24-4-15">&lt;/i>
+el.innerHTML += getAPRSSymbolImageTag('/=', 48); // outputs: &lt;i class="aprs-table0-48 aprs-address-48-1-12">&lt;/i>
+el.innerHTML += getAPRSSymbolImageTag('/>', 64); // outputs: &lt;i class="aprs-table0-64 aprs-address-64-1-13">&lt;/i>
+el.innerHTML += getAPRSSymbolImageTag('/p', 128); // outputs: &lt;i class="aprs-table0-128 aprs-address-128-4-15">&lt;/i>
         </pre>
     </code>
     <div id="js-helper-1-inner">
@@ -98,9 +98,9 @@ el.innerHTML += getAPRSSymbolImageTag('/p'); // outputs: &lt;i class="aprs-table
             // use simple when known symbol
             var el = document.getElementById('js-helper-1-inner');
             el.innerHTML += getAPRSSymbolImageTag('/[');
-            el.innerHTML += getAPRSSymbolImageTag('/=');
-            el.innerHTML += getAPRSSymbolImageTag('/>');
-            el.innerHTML += getAPRSSymbolImageTag('/p');
+            el.innerHTML += getAPRSSymbolImageTag('/=', 48);
+            el.innerHTML += getAPRSSymbolImageTag('/>', 64);
+            el.innerHTML += getAPRSSymbolImageTag('/p', 128);
         });
     </script>
 </div>
