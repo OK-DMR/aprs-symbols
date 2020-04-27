@@ -23,20 +23,73 @@
 <!-- Pure HTML/CSS -->
 <div id="pure-html-css">
     <h2>Plain HTML/CSS usage</h2>
-    <i class="aprs-table0 aprs-address-0-0"></i>
-    <i class="aprs-table0 aprs-address-0-1"></i>
-    <i class="aprs-table0 aprs-address-0-2"></i>
-    <i class="aprs-table0 aprs-address-0-3"></i>
-    <i class="aprs-table0 aprs-address-0-4"></i>
-    <i class="aprs-table0 aprs-address-0-5"></i>
-    <i class="aprs-table0 aprs-address-0-6"></i>
-    <i class="aprs-table0 aprs-address-0-7"></i>
-    <i class="aprs-table0 aprs-address-0-8"></i>
-    <i class="aprs-table0 aprs-address-0-9"></i>
+    <h3>24px grid (default) - sample</h3>
+    <code>
+        <pre>
+&lt;i class="aprs-table0 aprs-address-0-0">&lt;/i>
+&lt;i class="aprs-table0 aprs-address-0-1">&lt;/i>
+&lt;i class="aprs-table0 aprs-address-0-2">&lt;/i>
+&lt;i class="aprs-table0 aprs-address-0-3">&lt;/i>
+&lt;i class="aprs-table0 aprs-address-0-4">&lt;/i>
+&lt;i class="aprs-table0 aprs-address-0-5">&lt;/i>
+&lt;i class="aprs-table0 aprs-address-0-6">&lt;/i>
+&lt;i class="aprs-table0 aprs-address-0-7">&lt;/i>
+&lt;i class="aprs-table0 aprs-address-0-8">&lt;/i>
+&lt;i class="aprs-table0 aprs-address-0-9">&lt;/i>
+        </pre>
+    </code>
+    <div>
+        <i class="aprs-table0 aprs-address-0-0"></i>
+        <i class="aprs-table0 aprs-address-0-1"></i>
+        <i class="aprs-table0 aprs-address-0-2"></i>
+        <i class="aprs-table0 aprs-address-0-3"></i>
+        <i class="aprs-table0 aprs-address-0-4"></i>
+        <i class="aprs-table0 aprs-address-0-5"></i>
+        <i class="aprs-table0 aprs-address-0-6"></i>
+        <i class="aprs-table0 aprs-address-0-7"></i>
+        <i class="aprs-table0 aprs-address-0-8"></i>
+        <i class="aprs-table0 aprs-address-0-9"></i>
+    </div>
+    <h3>48px grid - sample</h3>
+    <code>
+        <pre>
+&lt;i class="aprs-table0-48 aprs-address-48-0-0">&lt;/i>
+&lt;i class="aprs-table0-48 aprs-address-48-0-1">&lt;/i>
+&lt;i class="aprs-table0-48 aprs-address-48-0-2">&lt;/i>
+&lt;i class="aprs-table0-48 aprs-address-48-0-3">&lt;/i>
+&lt;i class="aprs-table0-48 aprs-address-48-0-4">&lt;/i>
+&lt;i class="aprs-table0-48 aprs-address-48-0-5">&lt;/i>
+&lt;i class="aprs-table0-48 aprs-address-48-0-6">&lt;/i>
+&lt;i class="aprs-table0-48 aprs-address-48-0-7">&lt;/i>
+&lt;i class="aprs-table0-48 aprs-address-48-0-8">&lt;/i>
+&lt;i class="aprs-table0-48 aprs-address-48-0-9">&lt;/i>
+        </pre>
+    </code>
+    <div>
+        <i class="aprs-table0-48 aprs-address-48-0-0"></i>
+        <i class="aprs-table0-48 aprs-address-48-0-1"></i>
+        <i class="aprs-table0-48 aprs-address-48-0-2"></i>
+        <i class="aprs-table0-48 aprs-address-48-0-3"></i>
+        <i class="aprs-table0-48 aprs-address-48-0-4"></i>
+        <i class="aprs-table0-48 aprs-address-48-0-5"></i>
+        <i class="aprs-table0-48 aprs-address-48-0-6"></i>
+        <i class="aprs-table0-48 aprs-address-48-0-7"></i>
+        <i class="aprs-table0-48 aprs-address-48-0-8"></i>
+        <i class="aprs-table0-48 aprs-address-48-0-9"></i>
+    </div>
 </div>
+<hr/>
 
 <div id="js-helper-1">
     <h2>JS helper getAPRSSymbolImageTag(string symbol)</h2>
+    <code>
+        <pre>var el = document.getElementById('js-helper-1-inner');
+el.innerHTML += getAPRSSymbolImageTag('/['); // outputs: &lt;i class="aprs-table0-24 aprs-address-24-3-10">&lt;/i>
+el.innerHTML += getAPRSSymbolImageTag('/='); // outputs: &lt;i class="aprs-table0-24 aprs-address-24-1-12">&lt;/i>
+el.innerHTML += getAPRSSymbolImageTag('/>'); // outputs: &lt;i class="aprs-table0-24 aprs-address-24-1-13">&lt;/i>
+el.innerHTML += getAPRSSymbolImageTag('/p'); // outputs: &lt;i class="aprs-table0-24 aprs-address-24-4-15">&lt;/i>
+        </pre>
+    </code>
     <div id="js-helper-1-inner">
 
     </div>
@@ -51,9 +104,26 @@
         });
     </script>
 </div>
-
+<hr/>
 <div id="js-helper-2">
-    <h2>JS helper getAPRSSymbolImageTagByAddress(array address)</h2>
+    <h2>JS helper getAPRSSymbolImageTagByAddress(array address, number size = 24)</h2>
+    <small>size refers to grid (h/w) size, supported are 24px, 48px, 64px and 128px grids</small>
+    <code>
+        <pre>
+docReady(function () {
+var el = document.getElementById('js-helper-2-inner');
+// generate all images from 2 basic tables
+for (var table = 0; table < 2; table++) {
+    for (var row = 0; row < 6; row++) {
+        for (var col = 0; col < 16; col++) {
+            el.innerHTML += getAPRSSymbolImageTagByAddress([table, row, col])
+        }
+        el.innerHTML += '&lt;br/>';
+    }
+    el.innerHTML += '&lt;br/>&lt;br/>';
+}
+        </pre>
+    </code>
     <div id="js-helper-2-inner">
 
     </div>
