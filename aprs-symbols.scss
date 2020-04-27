@@ -1,0 +1,57 @@
+$sizes: 24, 48, 64, 128;
+$tables: 0, 1;
+$table_template: "aprs-symbols-SIZE-TABLE.png";
+
+$rows: 5;
+$columns: 15;
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+%aprs-table {
+  display: inline-block;
+  margin: 0 0 -8px;
+  padding: 0;
+}
+
+@each $table in $tables {
+  @each $size in $sizes {
+    i.aprs-table#{$table}-#{$size} {
+      @extend %aprs-table;
+      background: url(str-replace(str-replace($table_template, 'TABLE', $table), 'SIZE', $size)) no-repeat;
+      width: #{$size}px;
+      height: #{$size}px;
+    }
+  }
+
+  i.aprs-table#{$table} {
+    @extend %aprs-table;
+    background: url(str-replace(str-replace($table_template, 'TABLE', $table), 'SIZE', '24')) no-repeat;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@for $row from 0 through $rows {
+  @for $column from 0 through $columns {
+    @each $size in $sizes {
+      i.aprs-address-#{$size}-#{$row}-#{$column} {
+        $row-offset: $row * $size;
+        $column-offset: $column * $size;
+        background-position: -#{$column-offset}px -#{$row-offset}px;
+      }
+    }
+    i.aprs-address-#{$row}-#{$column} {
+      $row-offset: $row * 24;
+      $column-offset: $column * 24;
+      background-position: -#{$column-offset}px -#{$row-offset}px;
+    }
+  }
+}
