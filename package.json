@@ -1,5 +1,5 @@
 {
-  "name": "aprs-symbols",
+  "name": "@smarek/aprs-symbols",
   "version": "0.0.2",
   "description": "CSS module to render APRS symbol tables, with optional JS helpers",
   "main": "aprs-symbols.js",
@@ -31,5 +31,12 @@
   "bugs": {
     "url": "https://github.com/smarek/aprs-symbols/issues"
   },
-  "homepage": "https://smarek.github.io/aprs-symbols/"
+  "homepage": "https://smarek.github.io/aprs-symbols/",
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/smarek"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
